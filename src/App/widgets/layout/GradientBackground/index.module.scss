@@ -1,0 +1,6 @@
+.gradient_background {
+  @apply w-[2000px] h-[500px] absolute -left-[80px] -top-[200px] -rotate-12 bg-red-500;
+
+  background: rgb(156,203,56);
+  background: linear-gradient(117deg, rgba(156,203,56,1) 0%, rgba(9,121,68,1) 26%, rgba(7,148,158,1) 60%, rgba(0,71,255,1) 100%);
+}
