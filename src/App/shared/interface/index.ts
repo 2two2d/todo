@@ -3,6 +3,5 @@ interface IPageProps {
 }
 
 export type {
-    IPageProps,
-    IIcon
+    IPageProps
 }
