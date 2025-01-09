@@ -1,0 +1,74 @@
+.wrapper {
+  @apply flex flex-col items-start;
+}
+
+.content {
+  @apply relative w-full;
+}
+
+.input {
+  @apply w-full bg-transparent border outline-none transition
+  focus:border-input-hover
+  active:border-input-hover
+  disabled:cursor-default disabled:bg-input-primary disabled:border-input-primary
+  invalid:border-input-error;
+  @layer border-stroke text-gray;
+
+  &--small {
+    @apply h-[24px] py-[1px] px-2;
+  }
+
+  &--medium {
+    @apply h-[32px] py-[5px] px-3;
+  }
+
+  &--big {
+    @apply h-[48px] py-[10px] px-5;
+  }
+
+  &-uppercase {
+    @apply uppercase;
+  }
+
+  &-icon {
+    &-start {
+      @apply pl-12;
+    }
+
+    &-end {
+      @apply pr-12;
+    }
+
+    &-color {
+      @apply pl-[38px];
+    }
+  }
+
+  &-rounded {
+    &-small {
+      @apply rounded;
+    }
+
+    &-medium {
+      @apply rounded-lg;
+    }
+  }
+
+  &.error {
+    input {
+      @apply border-input-error;
+    }
+  }
+}
+
+.icon {
+  @apply absolute inset-y-0 flex justify-around items-center;
+
+  &.start {
+    @apply left-4;
+  }
+
+  &.end {
+    @apply right-4;
+  }
+}

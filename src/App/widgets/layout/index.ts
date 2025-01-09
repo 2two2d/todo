@@ -1,1 +1,5 @@
-export * from './base'
+import BaseLayout from './base'
+
+export {
+  BaseLayout
+}

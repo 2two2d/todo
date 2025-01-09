@@ -1,14 +1,21 @@
-import {configureStore} from "@reduxjs/toolkit";
-import todoReducer from "@entities/todo/model/slice";
-import categoryReducer from "@entities/category/model/slice";
+import { configureStore } from '@reduxjs/toolkit'
 
-export const store = configureStore({
-    reducer: {
-        todo: todoReducer,
-        category: categoryReducer
-    }
+import { TodoSlice } from '@entities/todo/model/slice'
+import { CategorySlice } from '@entities/category/model/slice'
+
+const Store = configureStore({
+  reducer: {
+    todo: TodoSlice.reducer,
+    category: CategorySlice.reducer
+  }
 })
 
-export type RootState = ReturnType<typeof store.getState>
+type RootState = ReturnType<typeof Store.getState>
 
-export type AppDispatch = typeof store.dispatch
+type AppDispatch = typeof Store.dispatch
+
+export {
+  Store,
+  type RootState,
+  type AppDispatch
+}

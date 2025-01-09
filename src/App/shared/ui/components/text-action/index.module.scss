@@ -1,0 +1,11 @@
+.text-action {
+  @apply flex gap-1 px-2 py-1 text-[12px] font-medium text-nowrap cursor-pointer;
+
+  &::before {
+    @apply content-[''] absolute top-0 left-0 w-full h-full bg-current rounded-md opacity-0;
+  }
+
+  &::before:hover {
+    @apply opacity-10;
+  }
+}

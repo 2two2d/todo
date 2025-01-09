@@ -1,15 +1,21 @@
-import {ReactElement} from "react";
-import {Outlet} from "react-router";
-import GradientBackground from "../GradientBackground";
+import { Outlet } from 'react-router'
+
+import LayoutMainTitle from '@widgets/layout/base/title'
+
+import GradientBackground from './gradient-background'
+
+import type { ReactElement } from 'react'
 
 const BaseLayout = (): ReactElement => {
-    return (
-        <div className='w-[960px] pt-[140px] relative flex flex-col items-center gap-10'>
-            <GradientBackground/>
+  return (
+    <div className="w-[960px] m-auto pt-[180px] relative flex flex-col items-center gap-10">
+      <GradientBackground />
 
-            <Outlet/>
-        </div>
-    )
+      <LayoutMainTitle />
+
+      <Outlet />
+    </div>
+  )
 }
 
 export default BaseLayout

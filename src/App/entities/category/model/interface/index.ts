@@ -1,12 +1,12 @@
 interface ICategory {
-    id: string,
-    name: string,
-    color: string
+  id: string
+  name: string
+  color: string
 }
 
 type ICategoryCreatePort = Omit<ICategory, 'id'>
 
 export type {
-    ICategory,
-    ICategoryCreatePort
+  ICategory,
+  ICategoryCreatePort
 }

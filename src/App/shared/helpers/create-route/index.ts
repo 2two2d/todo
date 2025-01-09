@@ -1,9 +1,9 @@
-import {ERoutes} from "@shared/enum/routes";
+import type { ERoutes } from '@shared/enum/routes'
 
 const createRoute = (routes: ERoutes[]): string => {
-    return routes.join('/')
+  return routes.join('/')
 }
 
 export {
-    createRoute
+  createRoute
 }

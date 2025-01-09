@@ -1,17 +1,20 @@
-abstract class ILocalStorage {
-    public static setItem: (key: string, value: any) => void
+import type { ILocalStorage } from '@shared/utils/auto-local-storage/abstract-class'
 
-    public static getItem: <T>(key: string) => T
+// eslint-disable-next-line @typescript-eslint/no-extraneous-class
+class LocalStorage implements ILocalStorage {
+
+  public static setItem = (key: string, value: unknown): void => {
+    localStorage.setItem(key, JSON.stringify(value))
+  }
+
+  public static getItem = <T>(key: string): T => {
+    return JSON.parse(localStorage.getItem(key) ?? '') as T
+  }
+
 }
 
-class LocalStorage implements ILocalStorage{
-    public static setItem = (key: string, value: any): void => {
-        localStorage.setItem(key, JSON.stringify(value))
-    }
+const LocalStorageSingleton = new LocalStorage()
 
-    public static getItem = <T>(key: string) => {
-        return JSON.parse(localStorage.getItem(key) ?? '') as T
-    }
+export {
+  LocalStorageSingleton
 }
-
-export default new LocalStorage()

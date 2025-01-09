@@ -1,0 +1,17 @@
+.label {
+  .label-text {
+    @apply text-text-primary font-medium mb-2 block;
+  }
+
+  &.req {
+    .label-text:before {
+      @apply content-['*'] text-input-error mr-1;
+    }
+  }
+
+  &.noReq {
+    .label-text:after {
+      @apply content-['(Необязательно)'] text-input-gray ml-1;
+    }
+  }
+}

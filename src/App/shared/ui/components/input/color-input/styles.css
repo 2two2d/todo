@@ -1,0 +1,20 @@
+.custom-layout .react-colorful {
+    width: 100%;
+}
+
+.custom-layout .react-colorful__saturation {
+    margin-bottom: 16px;
+    border-radius: 4px;
+}
+
+.custom-layout .react-colorful__hue {
+    height: 8px;
+    border-radius: 100px;
+    margin-bottom: 16px;
+}
+
+.custom-layout .react-colorful__hue-pointer,
+.custom-layout .react-colorful__alpha-pointer {
+    width: 20px;
+    height: 20px;
+}

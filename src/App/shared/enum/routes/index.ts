@@ -1,9 +1,8 @@
 enum ERoutes {
-    TODOS = 'todos',
-    CREATE = 'create',
-    LIST = 'list',
+  TODOS = 'todos',
+  LIST = 'list',
 }
 
 export {
-    ERoutes
+  ERoutes
 }

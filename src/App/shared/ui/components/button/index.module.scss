@@ -1,0 +1,10 @@
+.button {
+  @apply w-[160px] h-[40px] rounded-[8px] flex items-center justify-center gap-3 text-text-secondary font-semibold;
+
+  background: rgb(56, 203, 141);
+  background: linear-gradient(117deg, rgba(56, 203, 141, 1) 0%, rgba(76, 115, 217, 1) 100%);
+
+  &:hover {
+    @apply opacity-85;
+  }
+}
