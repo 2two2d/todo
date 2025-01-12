@@ -23,7 +23,8 @@ interface IUseCategoryCreatePresenterReturn {
   handleSubmit(e?: BaseSyntheticEvent | undefined): Promise<void>
 }
 
-export const useCategoryCreatePresenter = (): IUseCategoryCreatePresenterReturn => {
+export const useCategoryCreatePresenter =
+(onSuccess?: () => void): IUseCategoryCreatePresenterReturn => {
   const form = useForm({
     resolver: yupResolver<ICategoryCreatePort>(categoryCreateSchema())
   })
@@ -56,6 +57,7 @@ export const useCategoryCreatePresenter = (): IUseCategoryCreatePresenterReturn 
     }
 
     addCategory(data)
+    onSuccess && onSuccess()
   })
 
   return {

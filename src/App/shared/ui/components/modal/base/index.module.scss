@@ -1,0 +1,11 @@
+.modal {
+  @apply flex items-center justify-center w-full h-screen top-0 left-0 overflow-auto fixed bg-bg-primary bg-opacity-65 backdrop-blur-sm z-[1000] p-5;
+
+  &-dialog {
+    @apply w-[380px] -mt-[150px];
+  }
+
+  &-dialog-content {
+    @apply w-full p-5 bg-white rounded-lg shadow-md;
+  }
+}

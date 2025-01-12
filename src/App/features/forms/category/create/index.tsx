@@ -6,20 +6,26 @@ import { ControlledTextField } from '@shared/ui/components/input/controlled/text
 import { ColorInputControlled } from '@shared/ui/components/input/controlled/color-input'
 import { generateHex } from '@shared/utils/generate-hex'
 
-import type { UseFormReturn } from 'react-hook-form'
+import type { IDetailedProps } from '@shared/interface'
+
 import type { ICategoryCreatePort } from '@entities/category/model'
 import type { BaseSyntheticEvent, ReactNode } from 'react'
+import type { UseFormReturn } from 'react-hook-form'
 
-interface ICreateCategoryFormProps {
+interface ICreateCategoryFormProps extends Omit<IDetailedProps<HTMLDivElement>, 'form'> {
   form: UseFormReturn<ICategoryCreatePort>
 
   onSubmit(e?: BaseSyntheticEvent | undefined): Promise<void>
 }
 
-const CreateCategoryForm = ({ form, onSubmit }: ICreateCategoryFormProps): ReactNode => {
+const CreateCategoryForm = ({ form, onSubmit, className, ...props }: ICreateCategoryFormProps): ReactNode => {
   return (
     <FormProvider { ...form }>
-      <FormLayout handleSubmit={ onSubmit } formId="category-create">
+      <FormLayout handleSubmit={ onSubmit }
+        formId="category-create"
+        className={ className }
+        { ...props }
+      >
         <ControlledTextField
           name={ form.register('name').name }
           placeholder="Название"

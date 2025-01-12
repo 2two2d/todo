@@ -8,7 +8,7 @@ const backgroundColors = {
 }
 
 const textColors = {
-    primary: '#111439',
+    primary: '#222429',
     secondary: '#F8F8F9',
     gray: '#666666',
     'validation-text': '#F23030',
@@ -33,7 +33,7 @@ const borderColors = {
 }
 
 const iconColors = {
-    'dark-gray': '#656F77'
+    'dark-gray': '#656F77',
 }
 
 export default {

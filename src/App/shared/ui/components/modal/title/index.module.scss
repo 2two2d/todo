@@ -1,0 +1,11 @@
+.modal-title {
+  @apply flex justify-between items-start mb-4;
+
+  &-headline {
+    @apply font-semibold text-text-primary;
+  }
+
+  &-close-btn {
+    @apply p-[6px];
+  }
+}

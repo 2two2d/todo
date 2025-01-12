@@ -12,7 +12,11 @@ const Icon = ({ source, ...props }: IIcon): ReactNode => {
   const size = DEFAULT_SIZE_PX * (props.size ?? 1)
 
   return (
-    <IconComponent width={ size } height={ size } { ...props } />
+    <IconComponent width={ size }
+      height={ size }
+      { ...props }
+      className="hover:opacity-65"
+    />
   )
 }
 
