@@ -44,8 +44,11 @@ interface ISelectOption {
 
 interface ISelectProps extends ISpecialTextFieldProps {
   options: ISelectOption[]
-  value: string
+  value?: string[]
   labelOverride?: string
+  isMultiple?: boolean
+  maxItems?: number
+  emptyMessage?: string
   onChange(value: string): void
 }
 

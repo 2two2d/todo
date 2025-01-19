@@ -1,3 +1,7 @@
 .badge {
-  @apply w-fit h-[28px] px-2.5 text-center align-middle border-2 rounded-[14px];
+  @apply h-[20px] px-2 border rounded-[14px];
+
+  &_text {
+    @apply leading-[18px] truncate text-[12px];
+  }
 }

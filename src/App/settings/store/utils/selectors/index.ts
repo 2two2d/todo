@@ -15,6 +15,16 @@ import type { RootState } from '@settings/store'
  */
 const useGetCategories = (): ICategory[] => useSelector((state: RootState) => state.category.categories)
 
+const useGetCategoriesByIds = (): (payload: string[]) => ICategory[] => {
+  const categoryState = useSelector((state: RootState) => state.category)
+
+  return (payload: string[]): ICategory[] => CategorySlice.selectors.
+    getCategoriesByIds({ category: categoryState }, {
+      payload,
+      type: 'query'
+    })
+}
+
 const useDoesCategoryExist = (): (payload: ICategoryCreatePort) => boolean => {
   const categoryState = useSelector((state: RootState) => state.category)
 
@@ -42,6 +52,7 @@ const useDoesTodoExist = (): (payload: ITodoCreatePort) => boolean => {
 
 export {
   useGetCategories,
+  useGetCategoriesByIds,
   useDoesCategoryExist,
   useGetTodos,
   useDoesTodoExist

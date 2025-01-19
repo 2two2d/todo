@@ -19,7 +19,9 @@ const Badge = ({ text, color = '#2266FF', className, ...props }: IBadgeProps): R
       style={{ color: color, backgroundColor: addHexTransparency(color, HEX_TRANSPARENCY), borderColor: color }}
       { ...props }
     >
-      { text }
+      <p className={ style.badge_text }>
+        { text }
+      </p>
     </div>
   )
 }

@@ -26,7 +26,11 @@ interface IUseTodoCreatePresenterReturn {
 
 const useTodoCreatePresenter = (): IUseTodoCreatePresenterReturn => {
   const form = useForm({
-    resolver: yupResolver<ITodoCreatePort>(todoCreateSchema())
+    resolver: yupResolver<ITodoCreatePort>(todoCreateSchema()),
+    defaultValues: {
+      text: '',
+      categoryArrIds: []
+    }
   })
 
   const categories = useGetCategories()
@@ -36,6 +40,7 @@ const useTodoCreatePresenter = (): IUseTodoCreatePresenterReturn => {
   const doesTodoExist = useDoesTodoExist()
 
   const handleSuccess = (): void => {
+    form.reset()
     enqueueSnackbar(
       'Новая задача была успешно добавлена!',
       {

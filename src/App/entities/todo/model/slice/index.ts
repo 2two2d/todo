@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { v4 as uuid } from 'uuid'
 import isEqual from 'lodash.isequal'
 
-import { truthy } from '@shared/utils'
+import { isTruthy } from '@shared/utils'
 
 import type { PayloadAction } from '@reduxjs/toolkit'
 
@@ -21,41 +21,41 @@ const TodoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, { payload }: PayloadAction<ITodoCreatePort>) => {
-      state.todos.push({ ...payload, id: uuid(), is_blocked: false, is_done: false })
+      state.todos.push({ ...payload, id: uuid(), isBlocked: false, isDone: false })
     },
 
     deleteTodo: (state, { payload }: PayloadAction<string>) => {
-      state.todos.filter((item) => item.id !== payload)
+      state.todos = state.todos.filter((item) => item.id !== payload)
     },
 
     toggleTodoIsDone: (state, { payload }: PayloadAction<string>) => {
-      state.todos.map((item) => {
-        return item.id === payload ? { ...item, is_done: !item.is_done } : item
+      state.todos = state.todos.map((item) => {
+        return item.id === payload ? { ...item, isDone: !item.isDone } : item
       })
     },
 
     toggleTodoIsBlocked: (state, { payload }: PayloadAction<string>) => {
-      state.todos.map((item) => {
-        return item.id === payload ? { ...item, is_blocked: !item.is_blocked } : item
+      state.todos = state.todos.map((item) => {
+        return item.id === payload ? { ...item, isBlocked: !item.isBlocked } : item
       })
     },
 
     addTodoCategory: (state, { payload }: PayloadAction<{ todoId: string; categoryId: string }>) => {
-      state.todos.map((item) => {
+      state.todos = state.todos.map((item) => {
         return item.id === payload.todoId
-          ? { ...item, categories_ids: [...item.categories_ids ?? [], payload.categoryId]}
+          ? { ...item, categoryArrIds: [...item.categoryArrIds ?? [], payload.categoryId]}
           : item
       })
     },
 
     deleteTodoCategory: (state, { payload }: PayloadAction<{ todoId: string; categoryId: string }>) => {
-      state.todos.map((item) => {
+      state.todos = state.todos.map((item) => {
         if (item.id === payload.todoId) {
-          const newListOfCategories = item.categories_ids ?? [].filter((category) => {
+          const newListOfCategories = item.categoryArrIds ?? [].filter((category) => {
             return category !== payload.categoryId
           })
 
-          return { ...item, categories_ids: newListOfCategories }
+          return { ...item, categoryArrIds: newListOfCategories }
         }
 
         return item
@@ -64,8 +64,8 @@ const TodoSlice = createSlice({
   },
   selectors: {
     doesTodoExist: (state, { payload }: PayloadAction<ITodoCreatePort>): boolean => {
-      return truthy(state.todos.find((item) => {
-        return item.text === payload.text && isEqual(item.categories_ids, payload.categories_ids)
+      return isTruthy(state.todos.find((item) => {
+        return item.text === payload.text && isEqual(item.categoryArrIds, payload.categoryArrIds)
       }))
     }
   }

@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { v4 as uuid } from 'uuid'
 
-import { truthy } from '@shared/utils'
+import { isTruthy } from '@shared/utils'
 
 import type { PayloadAction } from '@reduxjs/toolkit'
 
@@ -33,9 +33,14 @@ const CategorySlice = createSlice({
   },
   selectors: {
     doesCategoryExist: (state, { payload }: PayloadAction<ICategoryCreatePort>): boolean => {
-      return truthy(state.categories.find((item) => {
+      return isTruthy(state.categories.find((item) => {
         return item.name === payload.name && item.color === payload.color
       }))
+    },
+    getCategoriesByIds: (state, { payload }: PayloadAction<string[]>): ICategory[] => {
+      return state.categories.filter((item) => {
+        return payload.includes(item.id)
+      })
     }
   }
 })

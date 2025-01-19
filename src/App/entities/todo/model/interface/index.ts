@@ -1,12 +1,12 @@
 interface ITodo {
   id: string
   text: string
-  is_done: boolean
-  is_blocked: boolean
-  categories_ids?: string[]
+  isDone: boolean
+  isBlocked: boolean
+  categoryArrIds?: string[]
 }
 
-type ITodoCreatePort = Pick<ITodo, 'text' | 'categories_ids'>
+type ITodoCreatePort = Pick<ITodo, 'text' | 'categoryArrIds'>
 
 export type {
   ITodo,

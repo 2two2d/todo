@@ -8,7 +8,7 @@ import { forwardRef, useEffect, useMemo, useRef, useState } from 'react'
 
 import { BaseInput, TextField } from '@shared/ui/components/input'
 
-import { makeClassname, truthy } from '@shared/utils'
+import { isTruthy, makeClassname } from '@shared/utils'
 
 import styles from './index.module.scss'
 
@@ -54,7 +54,7 @@ IColorInputProps
 
   const handleColorChange = (newColor: string): void => {
     setColor(() => {
-      return truthy(currentValue) ? currentValue : newColor
+      return isTruthy(currentValue) ? currentValue : newColor
     })
 
     externalHandleColorChange && externalHandleColorChange(newColor)

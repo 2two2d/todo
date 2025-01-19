@@ -6,6 +6,8 @@ import {
   DeleteIcon,
   EditIcon,
   FilterIcon,
+  PadlockCloseIcon,
+  PadlockOpenIcon,
   SearchIcon,
   TickIcon
 } from '@shared/ui/icons'
@@ -20,6 +22,8 @@ const ICONS = {
   arrow: ArrowIcon,
   check: CheckIcon,
   cross: CrossIcon,
+  'padlock-open': PadlockOpenIcon,
+  'padlock-close': PadlockCloseIcon,
 } as const
 
 export {

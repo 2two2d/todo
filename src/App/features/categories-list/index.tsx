@@ -11,9 +11,10 @@ import CategoryBadge from '@entities/category/ui/category-badge'
 
 import AnimationAppear from '@shared/ui/animations/appear'
 
-import type { ReactElement, ReactNode } from 'react'
+import { ECategoryActions } from '@entities/category/model/enum'
 
 import type { IDetailedProps } from '@shared/interface'
+import type { ReactElement, ReactNode } from 'react'
 
 const CategoriesList = ({ ...props }: IDetailedProps<HTMLDivElement>): ReactNode => {
   const categories = useGetCategories()
@@ -22,7 +23,7 @@ const CategoriesList = ({ ...props }: IDetailedProps<HTMLDivElement>): ReactNode
     return categories.map((item) => {
       return (
         <AnimationAppear key={ item.id }>
-          <CategoryBadge category={ item } actions={ ['delete'] } />
+          <CategoryBadge category={ item } actions={ [ECategoryActions.DELETE] } />
         </AnimationAppear>
       )
     }).concat(

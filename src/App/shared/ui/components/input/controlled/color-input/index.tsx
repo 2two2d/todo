@@ -4,7 +4,7 @@ import { type ChangeEventHandler, type FC, useEffect, useState } from 'react'
 
 import { ColorInput } from '@shared/ui/components/input/color-input'
 
-import { truthy } from '@shared/utils'
+import { isTruthy } from '@shared/utils'
 
 import type { IColorInputProps } from '@shared/ui/components/input/interface'
 
@@ -48,7 +48,7 @@ const ColorInputControlled: FC<IColorInputControlledProps> = ({ name, ...props }
       currentValue={ currentValue }
       initialValue={ initialValue }
       isError={ error !== undefined }
-      error={ truthy(error) ? error : '' }
+      error={ isTruthy(error) ? error : '' }
     />
   )
 }

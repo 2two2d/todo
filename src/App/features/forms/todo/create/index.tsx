@@ -31,9 +31,11 @@ const CreateTodoForm = ({ form, selectOptions, onSubmit }: ICreateCategoryFormPr
         />
 
         <ControlledSelect
-          name={ form.register('categories_ids').name }
+          name={ form.register('categoryArrIds').name }
           options={ selectOptions }
-          value={ selectOptions[0]?.value ?? '' }
+          value={ [selectOptions[0]?.value ?? 'Здесь пока нет категорий'] }
+          isMultiple={ true }
+          emptyMessage="Категорий пока нет"
         />
       </FormLayout>
     </FormProvider>

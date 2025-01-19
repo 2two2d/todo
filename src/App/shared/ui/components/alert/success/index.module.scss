@@ -1,5 +1,5 @@
 .alert {
-  @apply flex items-center gap-3 px-[18px] py-[15px] rounded-lg bg-bg-green-light !min-w-[380px];
+  @apply flex items-center gap-3 px-[18px] py-[15px] rounded-lg bg-bg-light-green !min-w-[380px];
 
   &-text {
     @apply text-sm font-medium text-text-dark-green;

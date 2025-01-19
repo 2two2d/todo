@@ -2,9 +2,10 @@
 
 const backgroundColors = {
     primary: '#F8F8F9',
+    green: '#49d33b',
+    'light-green': '#DCFFEE',
     'light-blue': '#f2fafc',
-    'gray-light': '#F0F0F0',
-    'green-light': '#DAF8E6',
+    'light-gray': '#eeeeee',
 }
 
 const textColors = {
@@ -12,6 +13,7 @@ const textColors = {
     secondary: '#F8F8F9',
     gray: '#666666',
     'validation-text': '#F23030',
+    green: '#49d33b',
     'dark-green': '#004434'
 }
 
@@ -23,13 +25,11 @@ const inputColors = {
 }
 
 const borderColors = {
-    gray: '#D5D7DB',
-    'gray-light': '#F0F0F0',
+    gray: '#666666',
+    green: '#49d33b',
     error: '#BC1C21',
     gray2: '#DFE4EA',
     blue: '#3758F9',
-    yellow: '#F59E0B',
-    'btn-layout': 'rgba(0, 0, 0, 0.06)'
 }
 
 const iconColors = {

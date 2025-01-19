@@ -12,6 +12,8 @@ import { EModalKeys } from '@shared/enum'
 
 import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
 
+import TodosList from '@features/todos-list'
+
 import type { IPageProps } from '@shared/interface'
 import type { ReactNode } from 'react'
 
@@ -27,19 +29,21 @@ const ViewTodosPage = (props: IPageProps): ReactNode => {
   }
 
   return (
-    <div className="flex flex-col gap-2 justify-between">
+    <div className="flex flex-col gap-2 justify-between items-center">
       <CreateTodoForm form={ form }
         selectOptions={ selectOptions }
         onSubmit={ handleSubmit }
       />
 
-      <div>
+      <div className="w-[800px]">
         <Button buttonText="Добавить категорию"
           className="!w-[220px]"
           icon="add"
           onClick={ handleOpenCreateCategoryModal }
         />
       </div>
+
+      <TodosList className="mt-4" />
 
       <RenderModal currentModalKey={ EModalKeys.CreateCategory } />
     </div>

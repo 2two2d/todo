@@ -10,6 +10,8 @@ import CreateCategoryForm from '@features/forms/category/create'
 
 import { useCategoryCreatePresenter } from '@entities/category/model'
 
+import CategoriesList from '@features/categories-list'
+
 import type { ReactNode } from 'react'
 
 const MODAL_KEY = EModalKeys.CreateCategory
@@ -42,6 +44,8 @@ const CreateCategoryModal = (): ReactNode => {
       <ModalTitle title="Создать новую категорию" handleCloseModal={ onCloseModal } />
 
       <CreateCategoryForm form={ form } onSubmit={ handleSubmit } className="!shadow-none !p-0" />
+
+      <CategoriesList />
     </CustomModal>
   )
 }

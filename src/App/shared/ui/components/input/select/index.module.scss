@@ -3,7 +3,11 @@
 }
 
 .select_wrapper {
-  @apply w-full h-8 px-4 flex items-center justify-between border border-[#DFE3E9] rounded-md cursor-pointer;
+  @apply w-full h-8 px-1 flex items-center justify-start gap-1 border border-[#DFE3E9] rounded-lg cursor-pointer;
+
+  &_label-item {
+    @apply max-w-[64px];
+  }
 }
 
 .dropdown_wrapper {
@@ -11,7 +15,7 @@
 }
 
 .icon {
-  @apply w-3 h-3 transition-transform;
+  @apply w-4 h-4 absolute left-[216px] transition-transform;
 
   &_container {
     @apply flex flex-row gap-[2px];

@@ -7,17 +7,17 @@ import TextAction from '@shared/ui/components/text-action'
 
 import { useActions } from '@settings/store/utils/use-actions'
 
-import { truthy } from '@shared/utils'
+import { isTruthy } from '@shared/utils'
+
+import { ECategoryActions } from '@entities/category/model/enum'
 
 import type { ReactNode } from 'react'
 import type { IDetailedProps } from '@shared/interface'
 import type { ICategory } from '@entities/category/model'
 
-type ICategoryActions = 'delete'
-
 interface ICategoryBadgeProps extends IDetailedProps<HTMLDivElement> {
   category: ICategory
-  actions?: ICategoryActions[]
+  actions?: ECategoryActions[]
 }
 
 const CategoryBadge = ({ category, actions = [], className, ...props }: ICategoryBadgeProps): ReactNode => {
@@ -28,7 +28,7 @@ const CategoryBadge = ({ category, actions = [], className, ...props }: ICategor
   }
 
   const actionButtons = [
-    actions?.includes('delete') && (
+    actions?.includes(ECategoryActions.DELETE) && (
       <TextAction text="Удалить категорию"
         iconSource="delete"
         onClick={ handleDelete }
@@ -37,10 +37,10 @@ const CategoryBadge = ({ category, actions = [], className, ...props }: ICategor
     )
   ]
 
-  return truthy(actions)
+  return isTruthy(actions)
     ? (
       <WithToolTip className={ className }
-        toolTip={ <div>{ ...actionButtons }</div> }
+        toolTip={ actionButtons }
         { ...props }
       >
         <AnimationInteractive>
