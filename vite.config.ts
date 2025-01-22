@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite'
+import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react-swc'
 // @ts-expect-error idk
 import eslint from 'vite-plugin-eslint'
@@ -13,6 +13,7 @@ export default defineConfig({
       include: ['./src/**/*.ts', './src/**/*.tsx'],
     })
   ],
+  base: '/',
   resolve: {
     alias: {
       "@app": path.resolve(__dirname, "./src/App"),
