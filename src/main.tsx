@@ -11,8 +11,9 @@ import Router from '@settings/router'
 
 import './index.css'
 
-import { Store } from '@settings/store'
+import { Persistor, Store } from '@settings/store'
 import AlertSuccess from '@shared/ui/components/alert/success'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const snackbarProps: SnackbarProviderProps = {
   autoHideDuration: 2000,
@@ -31,7 +32,9 @@ createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <SnackbarProvider { ...snackbarProps }>
         <Provider store={ Store }>
-          <Router />
+          <PersistGate loading={ null } persistor={ Persistor }>
+            <Router />
+          </PersistGate>
         </Provider>
       </SnackbarProvider>
     </BrowserRouter>

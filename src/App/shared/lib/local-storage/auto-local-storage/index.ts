@@ -1,4 +1,4 @@
-import type { ILocalStorage } from '@shared/utils/auto-local-storage/abstract-class'
+import type { ILocalStorage } from '@shared/lib/local-storage/auto-local-storage/abstract-class'
 
 // eslint-disable-next-line @typescript-eslint/no-extraneous-class
 class LocalStorage implements ILocalStorage {
@@ -13,8 +13,6 @@ class LocalStorage implements ILocalStorage {
 
 }
 
-const LocalStorageSingleton = new LocalStorage()
-
 export {
-  LocalStorageSingleton
+  LocalStorage
 }

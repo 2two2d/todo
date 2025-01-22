@@ -14,6 +14,14 @@ import CategoryBadge from '@entities/category/ui/category-badge'
 
 import Icon from '@shared/ui/components/icon'
 
+import { ECategoryActions } from '@entities/category/model/enum'
+
+import { MAX_ATTACHED_CATEGORIES } from '@shared/consts'
+
+import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
+
+import { EModalKeys } from '@shared/enum'
+
 import style from './index.module.scss'
 
 import type { ReactNode } from 'react'
@@ -31,10 +39,12 @@ const TodoNote = ({ todo, actions = [], className, ...props }: ITodoNoteProps): 
     text,
     categoryArrIds,
     isBlocked,
-    isDone
+    isCompleted
   } = todo
 
   const { toggleTodoIsBlocked, deleteTodo, toggleTodoIsDone } = useActions()
+
+  const { openModal } = useModalState()
 
   const getCategoriesByIds = useGetCategoriesByIds()
 
@@ -52,14 +62,29 @@ const TodoNote = ({ todo, actions = [], className, ...props }: ITodoNoteProps): 
     deleteTodo(id)
   }
 
+  const handleOpenAttachCategoryModal = (): void => {
+    openModal<{ todoId: string }>(EModalKeys.AttachCategory, { todoId: id })
+  }
+
   const actionButtonsWithBadges = [
+    categories.length < MAX_ATTACHED_CATEGORIES && (
+      <div onClick={ handleOpenAttachCategoryModal }>
+        <Icon source="add" />
+      </div>
+    ),
+
     ...categories.map((item) => {
       return (
-        <CategoryBadge category={ item } key={ item.id } />
+        <CategoryBadge category={ item }
+          actions={ [ECategoryActions.DETACH] }
+          todoId={ id }
+          className={ style['category-badge'] }
+          key={ item.id }
+        />
       )
     }),
 
-    actions?.includes(ETodoActions.BLOCK) && !isDone && (
+    actions?.includes(ETodoActions.BLOCK) && !isCompleted && (
       <TextAction text={ isBlocked ? 'Разблокировать' : 'Заблокировать' }
         iconSource={ isBlocked ? 'padlock-open' : 'padlock-close' }
         onClick={ handleToggleTodoBlock }
@@ -77,8 +102,8 @@ const TodoNote = ({ todo, actions = [], className, ...props }: ITodoNoteProps): 
   ]
 
   const calcClassName = makeClassname(
-    !isDone && !isBlocked && style['todo-note'],
-    isDone && style['todo-note__completed'],
+    !isCompleted && !isBlocked && style['todo-note'],
+    isCompleted && style['todo-note__completed'],
     isBlocked && style['todo-note__blocked'],
     className
   )
@@ -90,7 +115,7 @@ const TodoNote = ({ todo, actions = [], className, ...props }: ITodoNoteProps): 
       >
         { text }
 
-        { isDone && <Icon source="check" size={ 1.2 } /> }
+        { isCompleted && <Icon source="check" size={ 1.2 } /> }
       </p>
 
       <ListWithDelimiter className={ style['actions-block'] }>

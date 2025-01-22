@@ -15,8 +15,8 @@ import type { ReactNode, Ref } from 'react'
 import type { ISelectOption, ISelectProps } from '@shared/ui/components/input'
 
 const Select = forwardRef(function Select (
-  { options, value, onChange, labelOverride, emptyMessage,
-    error, isError = false, isMultiple = false, maxItems = 3 }: ISelectProps,
+  { options, value, onChange, labelOverride, placeholder, emptyMessage,
+    error, isError = false, isMultiple = false, maxItems = 3, className }: ISelectProps,
   _ref: Ref<HTMLDivElement>
 ): ReactNode {
   const [isOpen, setIsOpen] = useState(false)
@@ -42,7 +42,7 @@ const Select = forwardRef(function Select (
   const noneOptionsClassName = makeClassname(classname.option, classname.label_container, '!h-[20px]')
 
   return (
-    <div ref={ ref } className={ classname.wrapper }>
+    <div ref={ ref } className={ makeClassname(classname.wrapper, className) }>
       <div
         className={ classname.select_wrapper }
         onClick={ handleToggleDropdown }
@@ -54,6 +54,9 @@ const Select = forwardRef(function Select (
             </div>
           )
         }) }
+
+        { isTruthy(placeholder) && isFalsy(selectedOptions) &&
+          <p className={ classname.select_wrapper_placeholder }>{ placeholder }</p> }
 
         <Icon source="arrow" className={ `${classname.icon} ${openIconClassname}` } />
       </div>

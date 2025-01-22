@@ -1,0 +1,5 @@
+const MAX_ATTACHED_CATEGORIES = 3
+
+export {
+  MAX_ATTACHED_CATEGORIES,
+}

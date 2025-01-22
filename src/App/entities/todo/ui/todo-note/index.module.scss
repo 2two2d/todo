@@ -1,5 +1,5 @@
 .todo-note {
-  @apply w-full h-[60px] flex-col flex p-2 border-b border-border-gray;
+  @apply w-full h-[60px] flex-col flex p-2 border-b-2 border-border-gray2;
 
   &:hover {
     @apply border-border-blue duration-300;
@@ -17,9 +17,13 @@
     @apply self-end h-[20px];
   }
 
+  .category-badge {
+    @apply mx-1 -translate-y-0.5;
+  }
+
   &__completed {
     @extend .todo-note;
-    @apply bg-bg-light-green rounded-md border-border-green border-b-2;
+    @apply border-border-green;
 
     &:hover {
       @apply border-border-green;
@@ -29,11 +33,15 @@
       @extend .text;
       @apply text-text-green line-through;
     }
+
+    .text:hover {
+      @apply no-underline;
+    }
   }
 
   &__blocked {
     @extend .todo-note;
-    @apply bg-bg-light-gray rounded-md border-border-gray border-b-2;
+    @apply bg-bg-light-gray border-border-gray;
 
     &:hover {
       @apply border-border-gray;
@@ -44,9 +52,12 @@
       @apply text-text-gray pointer-events-none;
     }
 
+    .category-badge {
+      @apply mx-1 -translate-y-0.5 !bg-bg-gray pointer-events-none;
+    }
+
     & p:not(:hover), & div:not(:hover) {
       color: theme('textColor.text.gray') !important;
-      background-color: theme('backgroundColor.bg.light-gray') !important;
       border-color: theme('borderColor.border.gray') !important;
     }
   }

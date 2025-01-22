@@ -13,21 +13,34 @@ import AnimationAppear from '@shared/ui/animations/appear'
 
 import { ECategoryActions } from '@entities/category/model/enum'
 
-import type { IDetailedProps } from '@shared/interface'
 import type { ReactElement, ReactNode } from 'react'
 
-const CategoriesList = ({ ...props }: IDetailedProps<HTMLDivElement>): ReactNode => {
+import type { IDetailedProps } from '@shared/interface'
+
+interface ICategoryListProps extends IDetailedProps<HTMLDivElement> {
+  todoId?: string
+  actions?: ECategoryActions.ATTACH | Omit<ECategoryActions, ECategoryActions.ATTACH>[]
+  onAction?(): void
+}
+
+const CategoriesList = ({ actions, todoId, onAction, ...props }: ICategoryListProps): ReactNode => {
   const categories = useGetCategories()
+
+  const handleAction = onAction
 
   const list: ReactElement[] = useMemo(() => {
     return categories.map((item) => {
       return (
         <AnimationAppear key={ item.id }>
-          <CategoryBadge category={ item } actions={ [ECategoryActions.DELETE] } />
+          <CategoryBadge category={ item }
+            actions={ actions ?? [ECategoryActions.DELETE] }
+            todoId={ todoId }
+            onAction={ handleAction }
+          />
         </AnimationAppear>
       )
     }).concat(
-      <NumberLimit maxNumber={ MAX_CATEGORIES } currentNumber={ categories.length } className="leading-7" />
+      <NumberLimit maxNumber={ MAX_CATEGORIES } currentNumber={ categories.length } className="leading-6" />
     )
   }, [categories])
 

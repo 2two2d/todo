@@ -37,18 +37,20 @@ interface IColorInputProps extends ITextFieldProps {
   onColorChange?(newColor: string): void
 }
 
-interface ISelectOption {
+interface ISelectOption<T = string> {
   label: ReactNode | string
-  value: string
+  value: T
 }
 
-interface ISelectProps extends ISpecialTextFieldProps {
-  options: ISelectOption[]
-  value?: string[]
+interface ISelectProps<T = string> extends ISpecialTextFieldProps {
+  options: ISelectOption<T>[]
+  value?: T[]
   labelOverride?: string
   isMultiple?: boolean
   maxItems?: number
   emptyMessage?: string
+  placeholder?: string
+  className?: string
   onChange(value: string): void
 }
 

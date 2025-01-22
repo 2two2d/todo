@@ -3,6 +3,7 @@
 const backgroundColors = {
     primary: '#F8F8F9',
     green: '#49d33b',
+    gray: '#D6D6D6',
     'light-green': '#DCFFEE',
     'light-blue': '#f2fafc',
     'light-gray': '#eeeeee',
@@ -12,6 +13,7 @@ const textColors = {
     primary: '#222429',
     secondary: '#F8F8F9',
     gray: '#666666',
+    'light-gray': '#A6A6A6',
     'validation-text': '#F23030',
     green: '#49d33b',
     'dark-green': '#004434'

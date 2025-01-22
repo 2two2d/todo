@@ -1,7 +1,7 @@
 .badge {
-  @apply h-[20px] px-2 border rounded-[14px];
+  @apply h-[24px] px-2 rounded-[14px];
 
   &_text {
-    @apply leading-[18px] truncate text-[12px];
+    @apply leading-[20px] truncate text-[14px];
   }
 }

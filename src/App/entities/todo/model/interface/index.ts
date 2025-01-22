@@ -1,7 +1,7 @@
 interface ITodo {
   id: string
   text: string
-  isDone: boolean
+  isCompleted: boolean
   isBlocked: boolean
   categoryArrIds?: string[]
 }

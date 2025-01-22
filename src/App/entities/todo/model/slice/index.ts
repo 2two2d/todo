@@ -21,7 +21,7 @@ const TodoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, { payload }: PayloadAction<ITodoCreatePort>) => {
-      state.todos.push({ ...payload, id: uuid(), isBlocked: false, isDone: false })
+      state.todos.push({ ...payload, id: uuid(), isBlocked: false, isCompleted: false })
     },
 
     deleteTodo: (state, { payload }: PayloadAction<string>) => {
@@ -30,7 +30,7 @@ const TodoSlice = createSlice({
 
     toggleTodoIsDone: (state, { payload }: PayloadAction<string>) => {
       state.todos = state.todos.map((item) => {
-        return item.id === payload ? { ...item, isDone: !item.isDone } : item
+        return item.id === payload ? { ...item, isCompleted: !item.isCompleted } : item
       })
     },
 
@@ -40,7 +40,7 @@ const TodoSlice = createSlice({
       })
     },
 
-    addTodoCategory: (state, { payload }: PayloadAction<{ todoId: string; categoryId: string }>) => {
+    attachCategory: (state, { payload }: PayloadAction<{ todoId: string; categoryId: string }>) => {
       state.todos = state.todos.map((item) => {
         return item.id === payload.todoId
           ? { ...item, categoryArrIds: [...item.categoryArrIds ?? [], payload.categoryId]}
@@ -48,11 +48,13 @@ const TodoSlice = createSlice({
       })
     },
 
-    deleteTodoCategory: (state, { payload }: PayloadAction<{ todoId: string; categoryId: string }>) => {
+    detachCategory: (state, { payload }: PayloadAction<{ todoId: string; categoryId: string }>) => {
+      const { categoryId, todoId } = payload
+
       state.todos = state.todos.map((item) => {
-        if (item.id === payload.todoId) {
-          const newListOfCategories = item.categoryArrIds ?? [].filter((category) => {
-            return category !== payload.categoryId
+        if (item.id === todoId) {
+          const newListOfCategories = (item.categoryArrIds ?? []).filter((category) => {
+            return category !== categoryId
           })
 
           return { ...item, categoryArrIds: newListOfCategories }

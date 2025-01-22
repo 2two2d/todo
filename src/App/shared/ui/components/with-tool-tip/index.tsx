@@ -40,8 +40,6 @@ const WithToolTip = ({ children, toolTip, className, ...props }: IToolTipProps):
       { isOpen && (
         <AppearFromTop>
           <div className={ classname['tool-tip-wrapper'] }>
-            <div className={ classname['tool-tip-wrapper_pointer'] } />
-
             <div className={ classname['tool-tip-wrapper_content'] }>
               { toolTip }
             </div>

@@ -4,6 +4,7 @@ import {
   CheckIcon,
   CrossIcon,
   DeleteIcon,
+  DetachIcon,
   EditIcon,
   FilterIcon,
   PadlockCloseIcon,
@@ -22,6 +23,7 @@ const ICONS = {
   arrow: ArrowIcon,
   check: CheckIcon,
   cross: CrossIcon,
+  detach: DetachIcon,
   'padlock-open': PadlockOpenIcon,
   'padlock-close': PadlockCloseIcon,
 } as const

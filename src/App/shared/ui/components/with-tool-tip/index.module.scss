@@ -1,8 +1,12 @@
 .tool-tip-wrapper {
-  @apply absolute translate-y-3 z-20 p-2 bg-bg-light-gray rounded-s shadow-md;
+  @apply absolute translate-y-3 z-20 p-2 bg-white border rounded-s shadow-md;
 
-  &_pointer {
-    @apply h-7 w-7 absolute -top-1 left-2 z-10 rotate-45 bg-bg-light-gray;
+  &::before {
+    @apply content-[''] h-[15px] w-[15px] absolute -top-2 left-2 rotate-45 bg-white border;
+  }
+
+  &::after {
+    @apply content-[''] h-[17px] w-[17px] absolute -top-[6px] left-[7px] rotate-45 bg-white;
   }
 
   &_content {

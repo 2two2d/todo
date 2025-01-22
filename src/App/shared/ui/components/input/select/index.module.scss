@@ -3,10 +3,14 @@
 }
 
 .select_wrapper {
-  @apply w-full h-8 px-1 flex items-center justify-start gap-1 border border-[#DFE3E9] rounded-lg cursor-pointer;
+  @apply w-full h-8 px-2 flex items-center justify-start gap-1 border border-[#DFE3E9] rounded-lg cursor-pointer;
 
   &_label-item {
     @apply max-w-[64px];
+  }
+
+  &_placeholder {
+    @apply text-text-light-gray ml-1;
   }
 }
 
@@ -58,7 +62,7 @@
 }
 
 .option {
-  @apply h-12 px-4 py-2 m-2;
+  @apply h-8 px-4 py-2 m-2;
 }
 
 .label_container {

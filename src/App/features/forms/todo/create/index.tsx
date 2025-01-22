@@ -24,7 +24,7 @@ interface ICreateCategoryFormProps {
 const CreateTodoForm = ({ form, selectOptions, onSubmit }: ICreateCategoryFormProps): ReactNode => {
   return (
     <FormProvider { ...form }>
-      <FormLayout handleSubmit={ onSubmit } formId="todo-create" className="!flex-row !w-full !items-center !p-5">
+      <FormLayout handleSubmit={ onSubmit } formId="todo-create" className="!w-full !flex-row !items-center justify-evenly !py-3">
         <ControlledTextField
           name={ form.register('text').name }
           placeholder="Что планируете сделать?"
@@ -35,6 +35,7 @@ const CreateTodoForm = ({ form, selectOptions, onSubmit }: ICreateCategoryFormPr
           options={ selectOptions }
           value={ [selectOptions[0]?.value ?? 'Здесь пока нет категорий'] }
           isMultiple={ true }
+          placeholder="Категории"
           emptyMessage="Категорий пока нет"
         />
       </FormLayout>

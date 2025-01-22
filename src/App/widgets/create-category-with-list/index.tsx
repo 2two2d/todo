@@ -9,14 +9,22 @@ import type { IDetailedProps } from '@shared/interface'
 
 import type { ReactElement } from 'react'
 
-type ICreateCategoryWithListProps = IDetailedProps<HTMLDivElement>
+interface ICreateCategoryWithListProps extends IDetailedProps<HTMLDivElement> {
+  formClassName?: string
 
-const CreateCategoryWithList = ({ className, ...props }: ICreateCategoryWithListProps): ReactElement => {
-  const { form, handleSubmit } = useCategoryCreatePresenter()
+  onSuccess?(): void
+}
+
+const CreateCategoryWithList = ({
+  className,
+  formClassName,
+  onSuccess,
+  ...props }: ICreateCategoryWithListProps): ReactElement => {
+  const { form, handleSubmit } = useCategoryCreatePresenter(onSuccess)
 
   return (
     <div className={ makeClassname('flex flex-col gap-2', className) } { ...props }>
-      <CreateCategoryForm form={ form } onSubmit={ handleSubmit } />
+      <CreateCategoryForm form={ form } onSubmit={ handleSubmit } className={ formClassName } />
 
       <CategoriesList />
     </div>

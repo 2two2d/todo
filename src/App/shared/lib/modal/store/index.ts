@@ -10,13 +10,13 @@ interface IModalItemState<T> {
   isOpen: boolean
 }
 
-interface IModalSLiceState {
+interface IModalSliceState {
   modals: {
     [key: string]: IModalItemState<unknown>
   }
 }
 
-const initialState: IModalSLiceState = {
+const initialState: IModalSliceState = {
   modals: {}
 }
 
@@ -24,7 +24,7 @@ const ModalSlice = createSlice({
   name: 'modal',
   initialState,
   reducers: {
-    openModal: <T extends object>(state: IModalSLiceState, { payload }: PayloadAction<IModalActionWithOptions<T>>) => {
+    openModal: <T extends object>(state: IModalSliceState, { payload }: PayloadAction<IModalActionWithOptions<T>>) => {
       const { key, options } = payload
 
       state.modals[key] = { ...state.modals[key], isOpen: true, options } as IModalItemState<typeof options>
@@ -46,3 +46,7 @@ const ModalSlice = createSlice({
 })
 
 export { ModalSlice }
+
+export type {
+  IModalSliceState
+}

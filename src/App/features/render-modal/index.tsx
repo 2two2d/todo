@@ -2,15 +2,16 @@ import { type ReactNode, useEffect } from 'react'
 
 import { EModalKeys } from '@shared/enum'
 import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
-import CreateCategoryModal from '@features/render-modal/modals/category/create'
+import { AttachCategoryModal, CreateCategoryModal } from '@features/render-modal/modals/category'
+
+import type { IAttachCategoryModalProps } from '@features/render-modal/modals/category/attach'
 
 interface IGetModalsProps {
   currentModalKey: EModalKeys
-  options?: object
 }
 
 const RenderModal = ({ currentModalKey }: IGetModalsProps): ReactNode => {
-  const { isModalOpen } = useModalState()
+  const { isModalOpen, modalState } = useModalState()
 
   const isOpen = isModalOpen({ key: currentModalKey })
 
@@ -21,7 +22,8 @@ const RenderModal = ({ currentModalKey }: IGetModalsProps): ReactNode => {
   }, [isModalOpen])
 
   const modals = {
-    [EModalKeys.CreateCategory]: isOpen && <CreateCategoryModal />
+    [EModalKeys.CreateCategory]: isOpen && <CreateCategoryModal />,
+    [EModalKeys.AttachCategory]: isOpen && <AttachCategoryModal options={ modalState.modals[currentModalKey].options as IAttachCategoryModalProps['options'] } />
   }
 
   return modals[currentModalKey as keyof typeof modals]

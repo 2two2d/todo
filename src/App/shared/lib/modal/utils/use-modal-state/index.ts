@@ -2,10 +2,14 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import { ModalSlice } from '../../store'
 
+import type { IModalSliceState } from '../../store'
+
 import type { RootState } from '@settings/store'
 import type { IModalAction, IModalActionWithOptions } from '../../interface'
 
 interface IUseModalStateReturn {
+  modalState: IModalSliceState
+
   openModal<T extends object>(key: IModalAction['key'], options?: IModalActionWithOptions<T>['options']): void
 
   closeModal(key: IModalAction['key']): void
@@ -37,7 +41,8 @@ const useModalState = (): IUseModalStateReturn => {
   return {
     openModal,
     closeModal,
-    isModalOpen
+    isModalOpen,
+    modalState
   }
 }
 

@@ -6,11 +6,7 @@ import { CustomModal, ModalTitle } from '@shared/ui/components/modal'
 
 import { EModalKeys } from '@shared/enum'
 
-import CreateCategoryForm from '@features/forms/category/create'
-
-import { useCategoryCreatePresenter } from '@entities/category/model'
-
-import CategoriesList from '@features/categories-list'
+import CreateCategoryWithList from '@widgets/create-category-with-list'
 
 import type { ReactNode } from 'react'
 
@@ -37,15 +33,11 @@ const CreateCategoryModal = (): ReactNode => {
     closeModal(MODAL_KEY)
   }
 
-  const { form, handleSubmit } = useCategoryCreatePresenter(handleCreateSuccess)
-
   return (
     <CustomModal isOpen={ isOpen } onClose={ handleCloseModal }>
       <ModalTitle title="Создать новую категорию" handleCloseModal={ onCloseModal } />
 
-      <CreateCategoryForm form={ form } onSubmit={ handleSubmit } className="!shadow-none !p-0" />
-
-      <CategoriesList />
+      <CreateCategoryWithList onSuccess={ handleCreateSuccess } formClassName="!shadow-none !p-0" />
     </CustomModal>
   )
 }
