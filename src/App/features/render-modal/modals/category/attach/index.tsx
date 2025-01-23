@@ -13,7 +13,7 @@ import type { ReactNode } from 'react'
 const MODAL_KEY = EModalKeys.AttachCategory
 
 interface IAttachCategoryModalProps {
-  options: {
+  options?: {
     todoId: string
   }
 }
@@ -29,7 +29,7 @@ const AttachCategoryModal = ({ options }: IAttachCategoryModalProps): ReactNode 
 
   const onCloseModal = handleCloseModal
 
-  const todoId = options.todoId
+  const todoId = options?.todoId
 
   return (
     <CustomModal isOpen={ isOpen } onClose={ handleCloseModal }>
