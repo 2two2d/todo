@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.1",
   "type": "module",
-  "homepage": "https://2two2d.github.io/todo",
+  "homepage": "https://2two2d.github.io/todo/",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
