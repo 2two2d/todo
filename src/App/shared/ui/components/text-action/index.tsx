@@ -2,7 +2,7 @@ import Icon from '@shared/ui/components/icon'
 
 import { makeClassname } from '@shared/utils'
 
-import classname from './index.module.scss'
+import style from './index.module.scss'
 
 import type { ReactNode } from 'react'
 
@@ -16,7 +16,7 @@ interface ITextActiveProps extends IDetailedProps<HTMLParagraphElement> {
 
 const TextAction = ({ text, iconSource, className, ...props }: ITextActiveProps): ReactNode => {
   return (
-    <p className={ makeClassname(classname['text-action'], className) } { ...props }>
+    <p className={ makeClassname(style.common, className) } { ...props }>
       { text }
 
       { iconSource && <Icon source={ iconSource } /> }

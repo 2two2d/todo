@@ -1,70 +1,70 @@
-.wrapper {
+.common {
   @apply relative w-[242px];
-}
 
-.select_wrapper {
-  @apply w-full h-8 px-2 flex items-center justify-start gap-1 border border-[#DFE3E9] rounded-lg cursor-pointer;
+  .wrapper {
+    @apply w-full h-8 px-2 flex items-center justify-start gap-1 border border-[#DFE3E9] rounded-lg cursor-pointer;
 
-  &_label-item {
-    @apply max-w-[64px];
-  }
+    .label-item {
+      @apply max-w-[64px];
+    }
 
-  &_placeholder {
-    @apply text-text-light-gray ml-1;
-  }
-}
+    .placeholder {
+      @apply text-text-light-gray ml-1;
+    }
 
-.dropdown_wrapper {
-  @apply absolute w-full mt-2 bg-white border border-[#DFE3E9] rounded-lg shadow-lg z-10;
-}
+    .icon {
+      @apply w-4 h-4 absolute left-[216px] transition-transform;
 
-.icon {
-  @apply w-4 h-4 absolute left-[216px] transition-transform;
+      &_container {
+        @apply flex flex-row gap-[2px];
+      }
 
-  &_container {
-    @apply flex flex-row gap-[2px];
-  }
+      &--open {
+        @apply rotate-[270deg];
+        & svg:global(.icon-inner) {
+          stroke: theme('colors.icon.dark-gray');
+          fill: transparent;
+        }
+      }
 
-  &--open {
-    @apply rotate-[270deg];
-    & svg:global(.icon-inner) {
-      stroke: theme('colors.icon.dark-gray');
-      fill: transparent;
+      &--close {
+        @apply rotate-90;
+        & svg:global(.icon-inner) {
+          stroke: theme('colors.icon.dark-gray');
+          fill: transparent;
+        }
+      }
     }
   }
 
-  &--close {
-    @apply rotate-90;
-    & svg:global(.icon-inner) {
-      stroke: theme('colors.icon.dark-gray');
-      fill: transparent;
+  .dropdown_wrapper {
+    @apply absolute w-full mt-2 bg-white border border-[#DFE3E9] rounded-lg shadow-lg z-10;
+
+    .option {
+      @apply h-8 px-4 py-2 m-2;
+    }
+
+    .unselected {
+      @apply bg-white;
+    }
+
+    .selected {
+      @apply bg-bg-light-gray;
+    }
+
+    .choose_item {
+      cursor: pointer;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+
+      &:hover {
+        @apply bg-bg-primary;
+      }
+    }
+
+    .label_container {
+      @apply flex flex-row justify-between items-center px-2 py-3;
     }
   }
-}
-
-.unselected {
-  background-color: #fff;
-}
-
-.selected {
-  background-color: #F3F7FD;
-}
-
-.choose_item {
-  cursor: pointer;
-  border-radius: 4px;
-  display: flex;
-  align-items: center;
-
-  &:hover {
-    background-color: #F6F6F6
-  }
-}
-
-.option {
-  @apply h-8 px-4 py-2 m-2;
-}
-
-.label_container {
-  @apply flex flex-row justify-between items-center px-2 py-3;
 }

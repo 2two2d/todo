@@ -15,11 +15,11 @@ const HEX_TRANSPARENCY = 20
 
 const Badge = ({ text, color = '#2266FF', className, ...props }: IBadgeProps): ReactElement => {
   return (
-    <div className={ makeClassname(style.badge, className) }
+    <div className={ makeClassname(style.common, className) }
       style={{ color: color, backgroundColor: addHexTransparency(color, HEX_TRANSPARENCY), borderColor: color }}
       { ...props }
     >
-      <p className={ style.badge_text }>
+      <p className={ style.text }>
         { text }
       </p>
     </div>

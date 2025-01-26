@@ -1,9 +1,10 @@
 import CreateCategoryForm from '@features/forms/category/create'
 
-import { useCategoryCreatePresenter } from '@entities/category/model'
 import CategoriesList from '@features/categories-list'
 
 import { makeClassname } from '@shared/utils'
+
+import { useCategoryCreatePresenter } from '@features/presenters/todo'
 
 import type { IDetailedProps } from '@shared/interface'
 

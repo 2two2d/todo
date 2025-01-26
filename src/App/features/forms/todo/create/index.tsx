@@ -24,7 +24,7 @@ interface ICreateCategoryFormProps {
 const CreateTodoForm = ({ form, selectOptions, onSubmit }: ICreateCategoryFormProps): ReactNode => {
   return (
     <FormProvider { ...form }>
-      <FormLayout handleSubmit={ onSubmit } formId="todo-create" className="!w-full !flex-row !items-center justify-evenly !py-3">
+      <FormLayout handleSubmit={ onSubmit } formId="todo-create" className="!w-full !flex-row !items-center justify-evenly !py-4">
         <ControlledTextField
           name={ form.register('text').name }
           placeholder="Что планируете сделать?"

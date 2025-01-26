@@ -1,9 +1,10 @@
-import useSearchParamsSelectPresenter from '@shared/helpers/use-url-params-select-presenter'
 import { ESearchParamsKeys } from '@shared/enum/search-params-keys'
 import { ESearchParamsValues } from '@shared/enum/search-params-values'
 import Select from '@shared/ui/components/input/select'
 
 import { makeClassname } from '@shared/utils'
+
+import { useSearchParamsSelectPresenter } from '@shared/helpers'
 
 import type { ISelectOption } from '@shared/ui/components/input'
 

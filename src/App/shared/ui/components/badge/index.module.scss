@@ -1,7 +1,7 @@
-.badge {
+.common {
   @apply h-[24px] px-2 rounded-[14px];
 
-  &_text {
+  .text {
     @apply leading-[20px] truncate text-[14px];
   }
 }

@@ -41,4 +41,6 @@ const useSearchParamsSelectPresenter =
   }
 }
 
-export default useSearchParamsSelectPresenter
+export {
+  useSearchParamsSelectPresenter
+}

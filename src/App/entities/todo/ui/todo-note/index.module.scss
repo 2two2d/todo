@@ -1,4 +1,4 @@
-.todo-note {
+.common {
   @apply w-full h-[60px] flex-col flex p-2 border-b-2 border-border-gray2;
 
   &:hover {
@@ -20,45 +20,45 @@
   .category-badge {
     @apply mx-1 -translate-y-0.5;
   }
+}
 
-  &__completed {
-    @extend .todo-note;
+.completed {
+  @extend .common;
+  @apply border-border-green;
+
+  &:hover {
     @apply border-border-green;
-
-    &:hover {
-      @apply border-border-green;
-    }
-
-    .text {
-      @extend .text;
-      @apply text-text-green line-through;
-    }
-
-    .text:hover {
-      @apply no-underline;
-    }
   }
 
-  &__blocked {
-    @extend .todo-note;
-    @apply bg-bg-light-gray border-border-gray;
+  .text {
+    @extend .text;
+    @apply text-text-green line-through;
+  }
 
-    &:hover {
-      @apply border-border-gray;
-    }
+  .text:hover {
+    @apply no-underline;
+  }
+}
 
-    .text {
-      @extend .text;
-      @apply text-text-gray pointer-events-none;
-    }
+.blocked {
+  @extend .common;
+  @apply bg-bg-light-gray border-border-gray;
 
-    .category-badge {
-      @apply mx-1 -translate-y-0.5 !bg-bg-gray pointer-events-none;
-    }
+  &:hover {
+    @apply border-border-gray;
+  }
 
-    & p:not(:hover), & div:not(:hover) {
-      color: theme('textColor.text.gray') !important;
-      border-color: theme('borderColor.border.gray') !important;
-    }
+  .text {
+    @extend .text;
+    @apply text-text-gray pointer-events-none;
+  }
+
+  .category-badge {
+    @apply mx-1 -translate-y-0.5 !bg-bg-gray pointer-events-none;
+  }
+
+  & p:not(:hover), & div:not(:hover) {
+    color: theme('textColor.text.gray') !important;
+    border-color: theme('borderColor.border.gray') !important;
   }
 }

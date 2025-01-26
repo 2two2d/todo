@@ -4,7 +4,7 @@ import { mergeRefs } from 'react-merge-refs'
 
 import { createPortal } from 'react-dom'
 
-import classname from './index.module.scss'
+import style from './index.module.scss'
 
 import type { ForwardedRef, MouseEvent, PropsWithChildren, ReactNode } from 'react'
 
@@ -53,12 +53,12 @@ const ModalRenderFunction = ({
     (
       <div
         ref={ mergeRefs([refModal, ref]) }
-        className={ `${className} ${classname.modal}` }
+        className={ `${style.common} ${className}` }
         onClick={ handleOnClose }
         { ...rest }
       >
-        <div onClick={ handleOnPreventClick } className={ classname['modal-dialog'] }>
-          <div ref={ refModalContent } className={ classname['modal-dialog-content'] }>
+        <div onClick={ handleOnPreventClick } className={ style.dialog }>
+          <div ref={ refModalContent } className={ style.content }>
             { children }
           </div>
         </div>

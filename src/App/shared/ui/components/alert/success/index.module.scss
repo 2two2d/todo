@@ -1,7 +1,7 @@
-.alert {
+.common {
   @apply flex items-center gap-3 px-[18px] py-[15px] rounded-lg bg-bg-light-green !min-w-[380px];
 
-  &-text {
+  .text {
     @apply text-sm font-medium text-text-dark-green;
   }
 }

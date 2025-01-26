@@ -31,6 +31,7 @@ const borderColors = {
     green: '#49d33b',
     error: '#BC1C21',
     gray2: '#DFE4EA',
+    'light-gray': '#CED4DA',
     blue: '#3758F9',
 }
 

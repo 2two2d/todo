@@ -16,7 +16,7 @@ interface ILayoutProps extends PropsWithChildren {
 const FormLayout = ({ children, handleSubmit, className, buttonText = 'Создать', formId }: ILayoutProps): ReactNode => {
   return (
     <form onSubmit={ handleSubmit }
-      className={ makeClassname('paper', style['form-layout'], className) }
+      className={ makeClassname('paper', style.common, className) }
       id={ formId }
     >
       { children }

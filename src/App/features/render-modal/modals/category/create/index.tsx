@@ -4,9 +4,9 @@ import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
 
 import { CustomModal, ModalTitle } from '@shared/ui/components/modal'
 
-import { EModalKeys } from '@shared/enum'
-
 import CreateCategoryWithList from '@widgets/create-category-with-list'
+
+import { EModalKeys } from '../../../../../shared/enum'
 
 import type { ReactNode } from 'react'
 

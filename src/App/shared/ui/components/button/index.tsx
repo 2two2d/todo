@@ -19,7 +19,7 @@ const Button = ({ buttonText, icon, className, ...props }: IButtonProps): ReactE
   return (
   // eslint-disable-next-line react/button-has-type
     <button
-      className={ makeClassname(style.button, className) }
+      className={ makeClassname(style.common, className) }
       { ...props }
     >
       { buttonText }

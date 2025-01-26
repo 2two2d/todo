@@ -1,6 +1,6 @@
 import { makeClassname } from '@shared/utils'
 
-import classname from './index.module.scss'
+import style from './index.module.scss'
 
 import type { IDetailedProps } from '@shared/interface'
 
@@ -10,7 +10,7 @@ type ILayoutMainTitle = IDetailedProps<HTMLParagraphElement>
 
 const LayoutMainTitle = ({ className, ...props }: ILayoutMainTitle): ReactElement => {
   return (
-    <h1 className={ makeClassname(classname.title, className) } { ...props }>
+    <h1 className={ makeClassname(style.common, className) } { ...props }>
       ToDo
     </h1>
   )

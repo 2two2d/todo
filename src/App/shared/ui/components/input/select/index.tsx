@@ -8,7 +8,7 @@ import { isFalsy, isTruthy, makeClassname } from '@shared/utils'
 
 import NumberLimit from '@shared/ui/components/number-limit'
 
-import classname from './index.module.scss'
+import style from './index.module.scss'
 
 import type { ReactNode, Ref } from 'react'
 
@@ -20,7 +20,7 @@ const Select = forwardRef(function Select (
   _ref: Ref<HTMLDivElement>
 ): ReactNode {
   const [isOpen, setIsOpen] = useState(false)
-  const openIconClassname = isOpen ? classname['icon--open'] : classname['icon--close']
+  const openIconClassname = isOpen ? style['icon--open'] : style['icon--close']
 
   const selectedOptions = isTruthy(value) ? options.filter((option) => value.includes(option.value)) : []
 
@@ -39,30 +39,30 @@ const Select = forwardRef(function Select (
 
   const ref = useHandleClickOutside(handleCloseDropdown)
 
-  const noneOptionsClassName = makeClassname(classname.option, classname.label_container, '!h-[20px]')
+  const noneOptionsClassName = makeClassname(style.option, style.label_container, '!h-[20px]')
 
   return (
-    <div ref={ ref } className={ makeClassname(classname.wrapper, className) }>
+    <div ref={ ref } className={ makeClassname(style.common, className) }>
       <div
-        className={ classname.select_wrapper }
+        className={ style.wrapper }
         onClick={ handleToggleDropdown }
       >
         { labelOverride ?? selectedOptions.map((item) => {
           return (
-            <div className={ classname['select_wrapper_label-item'] } key={ item.value }>
+            <div className={ style.labelItem } key={ item.value }>
               { item?.label ?? '' }
             </div>
           )
         }) }
 
         { isTruthy(placeholder) && isFalsy(selectedOptions) &&
-          <p className={ classname.select_wrapper_placeholder }>{ placeholder }</p> }
+          <p className={ style.placeholder }>{ placeholder }</p> }
 
-        <Icon source="arrow" className={ `${classname.icon} ${openIconClassname}` } />
+        <Icon source="arrow" className={ `${style.icon} ${openIconClassname}` } />
       </div>
 
       { isOpen && (
-        <div className={ classname.dropdown_wrapper }>
+        <div className={ style.dropdown_wrapper }>
           { options.map((option) => {
             const isSelected = selectedOptions.includes(option)
 
@@ -73,10 +73,10 @@ const Select = forwardRef(function Select (
             return (
               <div
                 key={ option.value }
-                className={ makeClassname(classname.option,
-                  classname.label_container,
-                  classname.choose_item,
-                  isSelected ? classname.selected : classname.unselected) }
+                className={ makeClassname(style.option,
+                  style.label_container,
+                  style.choose_item,
+                  isSelected ? style.selected : style.unselected) }
                 onClick={ handleSelect }
               >
                 { option.label }

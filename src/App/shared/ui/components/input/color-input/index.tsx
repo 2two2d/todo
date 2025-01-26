@@ -44,8 +44,8 @@ IColorInputProps
   const isConditionWhiteText = color?.toString().toUpperCase() === String('#FFFFFF')
 
   const colorIconClassname = makeClassname(
-    styles['color-input-icon'],
-    isConditionWhiteText && 'border border-[#CED4DA]'
+    styles.common,
+    isConditionWhiteText && styles.isValueWhite
   )
 
   const handleTogglePicker = (): void => {

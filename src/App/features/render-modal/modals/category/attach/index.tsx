@@ -2,11 +2,11 @@ import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
 
 import { CustomModal, ModalTitle } from '@shared/ui/components/modal'
 
-import { EModalKeys } from '@shared/enum'
-
 import CategoriesList from '@features/categories-list'
 
 import { ECategoryActions } from '@entities/category/model/enum'
+
+import { EModalKeys } from '../../../../../shared/enum'
 
 import type { ReactNode } from 'react'
 

@@ -8,26 +8,27 @@ import { ETodoActions } from '@entities/todo/model/enum'
 
 import ListWithDelimiter from '@shared/ui/components/list-with-delimiter'
 
-import { useGetCategoriesByIds } from '@settings/store/utils/selectors'
-
 import CategoryBadge from '@entities/category/ui/category-badge'
 
 import Icon from '@shared/ui/components/icon'
 
 import { ECategoryActions } from '@entities/category/model/enum'
 
-import { MAX_ATTACHED_CATEGORIES } from '@shared/consts'
-
 import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
 
-import { EModalKeys } from '@shared/enum'
+import { MAX_ATTACHED_CATEGORIES } from '@entities/todo/model'
+
+import { useGetCategoriesByIds } from '@entities/category/selectors'
 
 import style from './index.module.scss'
+
+import { EModalKeys } from '../../../../shared/enum'
+
+import type { ITodo } from '@entities/todo/model'
 
 import type { ReactNode } from 'react'
 
 import type { IDetailedProps } from '@shared/interface'
-import type { ITodo } from '@entities/todo/model'
 
 interface ITodoNoteProps extends IDetailedProps<HTMLDivElement> {
   todo: ITodo
@@ -102,9 +103,9 @@ const TodoNote = ({ todo, actions = [], className, ...props }: ITodoNoteProps): 
   ]
 
   const calcClassName = makeClassname(
-    !isCompleted && !isBlocked && style['todo-note'],
-    isCompleted && style['todo-note__completed'],
-    isBlocked && style['todo-note__blocked'],
+    !isCompleted && !isBlocked && style.common,
+    isCompleted && style.completed,
+    isBlocked && style.blocked,
     className
   )
 

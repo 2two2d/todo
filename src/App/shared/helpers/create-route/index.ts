@@ -1,6 +1,6 @@
-import type { ERoutes } from '@shared/enum/routes'
+import type { EPaths } from '../../enum/paths'
 
-const createRoute = (routes: ERoutes[]): string => {
+const createRoute = (routes: EPaths[]): string => {
   return routes.join('/')
 }
 

@@ -1,4 +1,4 @@
-.text-action {
+.common {
   @apply relative flex gap-1 px-2 py-1 text-[12px] font-medium text-nowrap cursor-pointer;
 
   &::before {

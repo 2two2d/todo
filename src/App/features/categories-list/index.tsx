@@ -2,8 +2,6 @@ import { useMemo } from 'react'
 
 import FlexibleList from '@shared/ui/components/flexible-list'
 
-import { useGetCategories } from '@settings/store/utils/selectors'
-
 import NumberLimit from '@shared/ui/components/number-limit'
 import { MAX_CATEGORIES } from '@entities/category/model'
 
@@ -13,9 +11,10 @@ import AnimationAppear from '@shared/ui/animations/appear'
 
 import { ECategoryActions } from '@entities/category/model/enum'
 
-import type { ReactElement, ReactNode } from 'react'
+import { useGetCategories } from '@entities/category/selectors'
 
 import type { IDetailedProps } from '@shared/interface'
+import type { ReactElement, ReactNode } from 'react'
 
 interface ICategoryListProps extends IDetailedProps<HTMLDivElement> {
   todoId?: string

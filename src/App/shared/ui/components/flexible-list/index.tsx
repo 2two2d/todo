@@ -13,7 +13,7 @@ interface IGridListProps extends IDetailedProps<HTMLDivElement> {
 
 const FlexibleList = ({ items, itemClassName, className, ...props }: IGridListProps): ReactElement => {
   return (
-    <div className={ makeClassname(style['flexible-list'], 'bg-paper', className) } { ...props }>
+    <div className={ makeClassname(style.common, 'bg-paper', className) } { ...props }>
       { items.map((item) => {
         return (
           <div className={ itemClassName } key={ item.key }>

@@ -43,7 +43,7 @@ IInputProps
   )
 
   return (
-    <div className={ makeClassname(styles.wrapper, className) }>
+    <div className={ makeClassname(styles.common, className) }>
       <div className={ makeClassname(styles.content) }>
         { (iconPosition === 'start' || iconPosition === 'color') && (
           <div className={ makeClassname(styles.icon, styles[iconPosition]) }>

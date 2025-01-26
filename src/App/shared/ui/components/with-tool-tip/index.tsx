@@ -6,7 +6,7 @@ import AppearFromTop from '@shared/ui/animations/appear-from-top'
 
 import { useHandleClickOutside } from '@shared/utils/use-handle-click-outside'
 
-import classname from './index.module.scss'
+import style from './index.module.scss'
 
 import type { PropsWithChildren, ReactNode } from 'react'
 
@@ -39,8 +39,8 @@ const WithToolTip = ({ children, toolTip, className, ...props }: IToolTipProps):
 
       { isOpen && (
         <AppearFromTop>
-          <div className={ classname['tool-tip-wrapper'] }>
-            <div className={ classname['tool-tip-wrapper_content'] }>
+          <div className={ style.common }>
+            <div className={ style.content }>
               { toolTip }
             </div>
           </div>

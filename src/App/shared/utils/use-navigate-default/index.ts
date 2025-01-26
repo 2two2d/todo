@@ -4,9 +4,9 @@ import { useLocation, useNavigate } from 'react-router'
 
 import { createRoute } from '@shared/helpers/create-route'
 
-import type { ERoutes } from '@shared/enum/routes'
+import type { EPaths } from '@shared/enum/paths'
 
-const useNavigateDefault = (defaultRoute: ERoutes[]): void => {
+const useNavigateDefault = (defaultRoute: EPaths[]): void => {
   const navigate = useNavigate()
   const { pathname } = useLocation()
 

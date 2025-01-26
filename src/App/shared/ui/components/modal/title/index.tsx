@@ -1,6 +1,6 @@
 import Icon from '@shared/ui/components/icon'
 
-import classname from './index.module.scss'
+import style from './index.module.scss'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -19,11 +19,11 @@ const ModalTitle = ({
   ...rest
 }: IModalTitleProps): ReactNode => {
   return (
-    <div className={ `${className} ${classname['modal-title']}` } { ...rest }>
-      <h2 className={ classname['modal-title-headline'] }>{ title }</h2>
+    <div className={ `${className} ${style['modal-title']}` } { ...rest }>
+      <h2 className={ style['modal-title-headline'] }>{ title }</h2>
 
       { isShowCloseIcon && (
-        <button type="button" className={ classname['modal-title-close-btn'] } onClick={ handleCloseModal }>
+        <button type="button" className={ style['modal-title-close-btn'] } onClick={ handleCloseModal }>
           <Icon source="cross" size={ 1.2 } />
         </button>
       ) }

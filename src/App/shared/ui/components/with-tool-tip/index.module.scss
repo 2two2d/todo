@@ -1,4 +1,4 @@
-.tool-tip-wrapper {
+.common {
   @apply absolute translate-y-3 z-20 p-2 bg-white border rounded-s shadow-md;
 
   &::before {
@@ -9,7 +9,7 @@
     @apply content-[''] h-[17px] w-[17px] absolute -top-[6px] left-[7px] rotate-45 bg-white;
   }
 
-  &_content {
+  .content {
     @apply relative z-30;
   }
 }

@@ -1,20 +1,20 @@
 import { useSetPageTitle } from '@shared/utils/set-title'
 
-import { useTodoCreatePresenter } from '@entities/todo/model'
-
 import CreateTodoForm from '@features/forms/todo/create'
 
 import Button from '@shared/ui/components/button'
 
 import { RenderModal } from '@features/render-modal'
 
-import { EModalKeys } from '@shared/enum'
-
 import { useModalState } from '@shared/lib/modal/utils/use-modal-state'
 
 import TodosFilter from '@features/filter/todo'
 
-import TodosList from '../../widgets/todos-list'
+import { useTodoCreatePresenter } from '@features/presenters/category'
+
+import { EModalKeys } from '@shared/enum'
+
+import TodosList from '@widgets/todos-list'
 
 import type { IPageProps } from '@shared/interface'
 import type { ReactNode } from 'react'
